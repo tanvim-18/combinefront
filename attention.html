@@ -1,33 +1,94 @@
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Probability Calculator</title>
+<style>
+    /* CSS styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #probabilityResult {
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
 </head>
 <body>
 
-<h2>Probability Calculator of Score above 9.0/10.0</h2>
+<div class="container">
+    <h2>Probability Calculator of Score above 9.0/10.0</h2>
 
-<!-- Questions -->
-<div>
-  <label for="subjectInput">Subject: 0 for Science, 1 for Math, 2 for History, 3 for English</label><br>
-  <input type="number" id="subjectInput" placeholder="text here"><br><br>
+    <!-- Questions -->
+    <div>
+        <label for="subjectInput">Subject: 0 for Science, 1 for Math, 2 for History, 3 for English</label>
+        <input type="number" id="subjectInput" placeholder="Enter subject number">
+        
+        <label for="attentionInput">Attention: type 'focused' or 'divided'</label>
+        <input type="text" id="attentionInput" placeholder="Enter attention type">
+        
+        <label for="solutionsInput">Solutions: number of solutions you found 0-4</label>
+        <input type="number" id="solutionsInput" placeholder="Enter number of solutions">
+        
+        <label for="SATinput">Score: SAT out of 1600</label>
+        <input type="number" id="SATInput" placeholder="Enter SAT score">
+    </div>
 
-  <label for="attentionInput">Attention: type 'focused' or 'divided'</label><br>
-  <input type="text" id="attentionInput" placeholder="text here"><br><br>
+    <!-- Button to Calculate Probability -->
+    <div>
+        <button onclick="calculateProbability()">Calculate Probability</button>
+    </div>
 
-  <label for="solutionsInput">Solutions: number of solutions you found 0-4</label><br>
-  <input type="number" id="solutionsInput" placeholder="text here"><br><br>
+    <!-- Display Probability -->
+    <div id="probabilityResult"></div>
 </div>
-
-<!-- Button to Calculate Probability -->
-<div>
-  <button onclick="calculateProbability()">Calculate Probability</button>
-</div>
-
-<!-- Display Probability -->
-<div id="probabilityResult"></div>
 
 <script>
 function calculateProbability() {
@@ -35,6 +96,7 @@ function calculateProbability() {
   var subject = parseInt(document.getElementById("subjectInput").value);
   var attention = document.getElementById("attentionInput").value;
   var solutions = parseInt(document.getElementById("solutionsInput").value);
+  var SAT = parseInt(document.getElementById("SATInput").value);
 
   // Validate inputs
   if (isNaN(subject) || isNaN(solutions) || (attention !== 'focused' && attention !== 'divided')) {
