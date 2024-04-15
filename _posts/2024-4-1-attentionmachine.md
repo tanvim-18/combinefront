@@ -29,6 +29,10 @@ courses: {'csp': {'week': 28}}
 
   <label for="solutionsInput">Solutions: number of solutions you found 0-4</label><br>
   <input type="number" id="solutionsInput" placeholder="text here"><br><br>
+
+  <label for="SATinput">Score: SAT out of 1600</label><br>
+  <input type="number" id="SATInput" placeholder="text here"><br><br>
+
 </div>
 
 <!-- Button to Calculate Probability -->
@@ -45,6 +49,7 @@ function calculateProbability() {
   var subject = parseInt(document.getElementById("subjectInput").value);
   var attention = document.getElementById("attentionInput").value;
   var solutions = parseInt(document.getElementById("solutionsInput").value);
+  var solutions = document.getElementById(document.getElementById("SATInput").value);
 
   // Validate inputs
   if (isNaN(subject) || isNaN(solutions) || (attention !== 'focused' && attention !== 'divided')) {
