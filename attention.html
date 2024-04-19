@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -94,7 +95,6 @@ function calculateProbability() {
   var subject = parseInt(document.getElementById("subjectInput").value);
   var attention = document.getElementById("attentionInput").value;
   var solutions = parseInt(document.getElementById("solutionsInput").value);
-  var SAT = parseInt(document.getElementById("SATInput").value);
 
   // Validate inputs
   if (isNaN(subject) || isNaN(solutions) || (attention !== 'focused' && attention !== 'divided')) {
@@ -112,6 +112,3 @@ function calculateProbability() {
 </script>
 </body>
 </html>
-
-
-
